@@ -1,29 +1,25 @@
-import  sys
-
 if __name__ == '__main__':
     N = int(input())
-my_list = []
-inputs  = []
-
-for line in sys.stdin:
-    inputs.append(line)
-
-for item in inputs:
-    if item[0:5] == 'print':
-        print(my_list)
-    elif item[0:2] == 'in':
-        inserts = [s for s in item.split()][1:3]
-        inserts = list(map(int, inserts))
-        my_list.insert(inserts[0], inserts[1])
-    elif item[0:3] == 'rem':
-        inserts = list(map(int, [s for s in item.split()][1]))
-        my_list.remove(inserts[0])
-    elif item[0:2] == 'ap':
-        inserts = list(map(int, [s for s in item.split()][1]))
-        my_list.append(inserts[0])
-    elif item[0:4] == 'sort':
-        my_list.sort()
-    elif item[0:3] == 'pop':
-        my_list.pop()
-    elif item[0:7] == 'reverse':
-        my_list.reverse()
+    m=list()
+    for i in range(N):
+       method,*l=input().split()
+       k=list(map(int,l))
+       if len(k)==2:
+          q=[k[0]]
+          w=[k[1]]
+       elif len(k)==1:
+          q=[k[0]]
+       if method =='insert':
+          m.insert(q[0],w[0])
+       elif method == 'append':
+          m.append(q[0])
+       elif  method == 'remove':
+          m.remove(q[0])
+       elif method =='print':
+          print(m)
+       elif method == 'reverse':
+          m.reverse()
+       elif method =='pop':
+          m.pop()
+       elif method == 'sort':
+          m.sort()
